@@ -2,40 +2,37 @@
 ## functions do
 ## The functions help to create a matrix and it's inverse and return the value of the inverse of the matrix in the second function
 ## Write a short comment describing this function
-## The function makeCacheMatrix creates a matrix which contains a list containing the functions to set and get the value of the matrix and it's inverse
-
-
+## The function makeCacheMatrix creates a matrix which contains a list containing the functions to input and read the value of the matrix and it's inverse
 
 
 makeCacheMatrix <- function(x = matrix()) {
-  a <- NULL
-  set <- function(b) {
+  a <- NULL 
+  inputmatrix <- function(b) { 
     x <<- b
     a <<- NULL
   }
-  get <- function() x
-  setinverse <- function(inverse) a <<- inverse
-  getinverse <- function() a
-  list(set = set,
-       get = get,
-       setinverse = setinverse,
-       getinverse = getinverse)
+  outputmatrix <- function() x
+  inputinversematrix <- function(inversematrix) a <<- inversematrix 
+  outputinversematrix <- function() a ##Saves the inverse of the matrix in case it needs to be printed again/ Caches the matrix
+  list(inputmatrix = inputmatrix,
+       outputmatrix = outputmatrix,
+       inputinversematrix = inputinversematrix,
+       outputinversematrix = outputinversematrix)
 }
-
 
 
 ## Write a short comment describing this function
 ##The function cacheSolve actually returns the inverse of the matrix that we defined in the first function 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
-  a <- x$getinverse()
-  if (!is.null(a)) {
-    message("Cached data is given as follows")
-    return(a)
+  c <- x$outputinversematrix()
+  if (!is.null(c)) {
+    message("Your matrix hasn't changed so the cached data of the inverse of the previously defined matrix is printed again")
+    return(c)
   }
-  data <- x$get()
-  a <- solve(data, ...)
-  x$setinverse(a)
-  a
+  data <- x$outputmatrix()
+  c <- solve(data, ...) ##solve function calculates the inverse of a matrix and is a predefined function in R
+  x$inputinversematrix(c)
+  c
 }
 
