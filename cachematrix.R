@@ -1,12 +1,16 @@
 ## Put comments here that give an overall description of what your
 ## functions do
-## The functions first define the inverse of the matrix in the first function and return its value in the second function
+## The functions help to create a matrix and it's inverse and return the value of the inverse of the matrix in the second function
 ## Write a short comment describing this function
-## The function makeCacheMatrix is used to define the inverse of the matrix
+## The function makeCacheMatrix creates a matrix which contains a list containing the functions to set and get the value of the matrix and it's inverse
+
+
+
+
 makeCacheMatrix <- function(x = matrix()) {
   a <- NULL
-  set <- function(y) {
-    x <<- y
+  set <- function(b) {
+    x <<- b
     a <<- NULL
   }
   get <- function() x
@@ -21,7 +25,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
-##This function actually returns the inverse of the matrix that is given
+##The function cacheSolve actually returns the inverse of the matrix that we defined in the first function 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   a <- x$getinverse()
