@@ -1,6 +1,6 @@
 ## Put comments here that give an overall description of what your
 ## functions do
-## The functions help to create a matrix and it's inverse and return the value of the inverse of the matrix in the second function
+## The functions help to create a matrix and it's inverse and return the value of the inverse of the matrix in the second function and also cache the value of the input matrix and the calculated inverse of the first matrix
 ## Write a short comment describing this function
 ## The function makeCacheMatrix creates a matrix which contains a list containing the functions to input and read the value of the matrix and it's inverse
 
